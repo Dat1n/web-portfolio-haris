@@ -447,5 +447,9 @@ article.icon{
         text-decoration: none;
         text-decoration-color: initial;
         text-underline-offset: initial;
+        
+    }
+    .btn-color-2 {
+        border-color: black;
     }
 }
