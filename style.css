@@ -426,7 +426,13 @@ article.icon{
   }
 
   footer {
-    background-color: rgb(163, 163, 163);
+    background-color: rgb(169, 149, 123);
     text-align: center;
     padding: 1rem 0;
+}
+
+.btn,
+.btn-container,
+.nav-links li a{
+    touch-action: manipulation;
 }
