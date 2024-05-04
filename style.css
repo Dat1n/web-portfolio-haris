@@ -450,6 +450,6 @@ article.icon{
         
     }
     .btn-color-2 {
-        border-color: black;
+        border: 0.1rem solid black;
     }
 }
