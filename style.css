@@ -48,21 +48,11 @@ a {
     text-decoration: 163,163,163;
 }
 
-a:hover{
-    color: rgb(169, 169, 169);
-    text-decoration: underline;
-    text-underline-offset: 1rem;
-    text-decoration-color:rgb(169,169,169) ;
-}
 
 .logo{
     font-size: 2rem;
 }
 
-.logo:hover{
-    cursor: default;
-    touch-action: manipulation;
-}
 
 /*HamburgerMenu*/
 
@@ -232,26 +222,20 @@ section{
     border: rgb(53, 53, 53) 0.1rem solid;
 }
 
-.btn-color-1 :hover,
- .btn-color-2:hover{
-    cursor: pointer;
-    touch-action: manipulation;
-}
 
-.btn-clor-1:hover {
-    background: rgb(0, 0, 0);
-    color: white;
+
+.btn-color-1{
+    background: white;
+    color:black;
 }
 
 .btn-clor-2 {
+
     background: white;
+    color: black;
 }
 
-.btn-clor-2:hover {
-    border: rgb(255, 255, 255) 0.1rem solid;
-    background:black;
-    color: white;
-}
+
 
 /*about section*/
 
@@ -431,4 +415,36 @@ article.icon{
     background-color: rgb(169, 149, 123);
     text-align: center;
     padding: 1rem 0;
+}
+
+/* For desktop screens */
+@media (hover: hover) {
+    /* Add your desktop hover styles here */
+    .btn-clor-1:hover {
+        background: rgb(0, 0, 0);
+        color: white;
+    }
+
+    .btn-clor-2:hover {
+        border: 0.1rem solid black;
+        background: black;
+        color: white;
+    }
+    .nav-links li a:hover {
+        color: rgb(169, 169, 169);
+        text-decoration: underline;
+        text-underline-offset: 1rem;
+        text-decoration-color: rgb(169, 169, 169);
+    }
+}
+
+/* For mobile devices */
+@media (hover: none) {
+    /* Remove hover styles for mobile */
+    .btn-clor-1:hover,
+    .btn-clor-2:hover {
+        background: 163,163,163;
+        color: 163,163,163;
+        border: 163,163,163;
+    }
 }
