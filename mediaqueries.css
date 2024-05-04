@@ -31,6 +31,12 @@
     .arrow {
       display: none;
     }
+    .unique-arrow{
+      display: none;
+    }
+    .unique-arrow-2{
+      display: none;
+    }
     section,
     .section-container {
       height: fit-content;
