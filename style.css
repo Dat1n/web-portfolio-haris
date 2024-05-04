@@ -217,6 +217,12 @@ section{
     border-radius: 2rem;
 }
 
+.btn-color-1, 
+.btn-color-2{
+    border: rgb(black) 0.1rem solid;
+}
+
+
 
 .btn-color-1{
     background: white;
@@ -225,10 +231,6 @@ section{
 
 .btn-color-2 {
 
-    border-color: black;
-    border-style: solid; 
-    border-width: 0.1rem; 
-    border-radius: 2rem;
     background: white;
     color: black;
 }
@@ -418,12 +420,12 @@ article.icon{
 /* For desktop screens */
 @media (hover: hover) {
     /* Add your desktop hover styles here */
-    .btn-color-1:hover {
+    .btn-clor-1:hover {
         background: rgb(0, 0, 0);
         color: white;
     }
 
-    .btn-color-2:hover {
+    .btn-clor-2:hover {
         border: 0.1rem solid black;
         background: black;
         color: white;
@@ -445,5 +447,6 @@ article.icon{
         text-decoration: none;
         text-decoration-color: initial;
         text-underline-offset: initial;
+        border: black;
     }
 }
