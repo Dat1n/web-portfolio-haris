@@ -388,8 +388,8 @@ article.icon{
     display: flex;
     justify-content: center;
     border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: rgb(163, 163, 163);
+    border: rgb(0, 0, 0) 0.1rem solid;
+    border-color: rgb(0, 0, 0);
     background: (250, 250, 250);
     margin: 2rem auto;
     padding: 0.5rem;
@@ -447,9 +447,14 @@ article.icon{
         text-decoration: none;
         text-decoration-color: initial;
         text-underline-offset: initial;
+        border: 0.1rem solid black;
+           
         
     }
     .btn-color-2 {
-        border: 0.1rem solid black;
+        .btn-clor-2:hover {
+            border: 0.1rem solid black;
+           
+        }
     }
 }
