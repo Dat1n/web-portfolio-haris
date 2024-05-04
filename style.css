@@ -440,24 +440,9 @@ article.icon{
 
 /* For mobile devices */
 @media (hover: none) {
-    /* Remove hover styles for mobile */
-    .nav-links li a:hover,
-    .contact-info-upper-container p:hover {
-        color: inherit;
-        text-decoration: none;
-        text-decoration-color: initial;
-        text-underline-offset: initial;
-    }
-
-    /* Add style for button border on mobile */
-    .btn-color-2 {
-        border-color: black; /* Specify the border color */
-    }
-
-    /* Change button text color on hover */
+    /* Change button border color on hover */
     .btn-color-2:hover {
-        color: white;
-        background: black;
+        border-color: black !important;
     }
 }
 
