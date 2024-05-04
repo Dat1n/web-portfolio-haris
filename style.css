@@ -447,14 +447,17 @@ article.icon{
         text-decoration: none;
         text-decoration-color: initial;
         text-underline-offset: initial;
-        border: 0.1rem solid black;
-           
-        
     }
+
+    /* Add style for button border on mobile */
     .btn-color-2 {
-        .btn-clor-2:hover {
-            border: 0.1rem solid black;
-           
-        }
+        border-color: black; /* Specify the border color */
+    }
+
+    /* Change button text color on hover */
+    .btn-color-2:hover {
+        color: white;
+        background: black;
     }
 }
+
