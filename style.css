@@ -216,18 +216,12 @@ section{
     width: 8rem;
     border-radius: 2rem;
 }
-
-.btn-color-1, 
+ 
 .btn-color-2{
-    border: rgb(53, 53, 53) 0.1rem solid;
+    border: rgb(white) 0.1rem solid;
 }
 
 
-
-.btn-color-1{
-    background: white;
-    color:black;
-}
 
 .btn-clor-2 {
 
@@ -274,8 +268,8 @@ section{
     flex: 1;
     background: white;
     border-radius: 2rem;
-    border: rgb(53, 53, 53) 0.1rem solid;
-    border-color: rgb(163, 163, 163);
+    border: rgb(white) 0.1rem solid;
+    border-color: rgb(white);
     text-align: center;
   }
   
@@ -420,16 +414,6 @@ article.icon{
 /* For desktop screens */
 @media (hover: hover) {
     /* Add your desktop hover styles here */
-    .btn-clor-1:hover {
-        background: rgb(0, 0, 0);
-        color: white;
-    }
-
-    .btn-clor-2:hover {
-        border: 0.1rem solid black;
-        background: black;
-        color: white;
-    }
     .nav-links li a:hover {
         color: rgb(169, 169, 169);
         text-decoration: underline;
@@ -441,14 +425,11 @@ article.icon{
 /* For mobile devices */
 @media (hover: none) {
     /* Remove hover styles for mobile */
-    .btn-clor-1:hover{
-        background: 163,163,163;
-        color: 163,163,163;
-        border: black;
-    }
-    .btn-clor-2:hover {
-        background: 163,163,163;
-        color: 163,163,163;
-        border: black;
+    .nav-links li a:hover,
+    .contact-info-upper-container p:hover {
+        color: inherit;
+        text-decoration: none;
+        text-decoration-color: initial;
+        text-underline-offset: initial;
     }
 }
