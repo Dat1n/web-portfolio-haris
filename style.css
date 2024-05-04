@@ -61,6 +61,7 @@ a:hover{
 
 .logo:hover{
     cursor: default;
+    touch-action: manipulation;
 }
 
 /*HamburgerMenu*/
@@ -234,6 +235,7 @@ section{
 .btn-color-1 :hover,
  .btn-color-2:hover{
     cursor: pointer;
+    touch-action: manipulation;
 }
 
 .btn-clor-1:hover {
@@ -429,10 +431,4 @@ article.icon{
     background-color: rgb(169, 149, 123);
     text-align: center;
     padding: 1rem 0;
-}
-
-.btn,
-.btn-container,
-.nav-links li a{
-    touch-action: manipulation;
 }

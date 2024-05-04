@@ -109,10 +109,3 @@
       text-align: justify;
     }
   }
-
-  @media (hover: hover){
-    .btn:hover{
-      background-color: black;
-      color: white;
-    }
-  }
