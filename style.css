@@ -219,7 +219,7 @@ section{
 
 .btn-color-1, 
 .btn-color-2{
-    border: rgb(white) 0.1rem solid;
+    border: rgb(rgb(0, 0, 0)) 0.1rem solid;
 }
 
 
@@ -420,12 +420,12 @@ article.icon{
 /* For desktop screens */
 @media (hover: hover) {
     /* Add your desktop hover styles here */
-    .btn-clor-1:hover {
+    .btn-color-1:hover {
         background: rgb(0, 0, 0);
         color: white;
     }
 
-    .btn-clor-2:hover {
+    .btn-color-2:hover {
         border: 0.1rem solid black;
         background: black;
         color: white;
