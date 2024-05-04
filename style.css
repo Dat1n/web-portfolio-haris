@@ -441,10 +441,14 @@ article.icon{
 /* For mobile devices */
 @media (hover: none) {
     /* Remove hover styles for mobile */
-    .btn-clor-1:hover,
+    .btn-clor-1:hover{
+        background: 163,163,163;
+        color: 163,163,163;
+        border: black;
+    }
     .btn-clor-2:hover {
         background: 163,163,163;
         color: 163,163,163;
-        border: 163,163,163;
+        border: black;
     }
 }
