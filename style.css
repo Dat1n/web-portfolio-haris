@@ -270,14 +270,16 @@ section{
   }
   
   .details-container {
-    padding: 1.5rem;
+    padding: 0.9rem;
     flex: 1;
     background: white;
     border-radius: 2rem;
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
     text-align: center;
+    margin: 0 auto;
   }
+  
   
   .section-container {
     gap: 4rem;
@@ -285,8 +287,8 @@ section{
   }
   
   .section__pic-container {
-    height: 400px;
-    width: 400px;
+    height: 500px;
+    width: 500px;
     margin: auto 0;
   }
   
@@ -376,6 +378,7 @@ article.icon{
     bottom: 2.9rem;
 }
 
+
 /*contact*/
 #contact {
     display: flex;
@@ -417,6 +420,7 @@ article.icon{
     padding: 1rem 0;
 }
 
+
 /* For desktop screens */
 @media (hover: hover) {
     /* Add your desktop hover styles here */
@@ -456,4 +460,10 @@ article.icon{
         color: white;
     }
 
+    @media (max-width: 600px) {
+        .project-img2 {
+            width: 100%;
+            height: auto;
+        }
+    }
 }
