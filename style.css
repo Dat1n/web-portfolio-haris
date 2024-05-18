@@ -450,7 +450,6 @@ footer {
         text-underline-offset: initial;
         border: black;
     }
-}
 
     /* Set button color to black on mobile */
     .btn {
@@ -458,9 +457,35 @@ footer {
         color: white;
     }
 
-    @media (max-width: 600px) {
-        .project-img2 {
-            width: 100%;
-            height: auto;
-        }
+@media (max-width: 1024px) {
+    .unique-arrow {
+        display: none;
     }
+}
+  
+@media (max-width: 768px) {
+    section {
+        margin: 0 2rem;
+        height: fit-content;
+    }
+    .section-container {
+        flex-direction: column;
+        height: fit-content;
+    }
+    .project-img2 {
+        width: 60%;
+    }
+}
+  
+@media (max-width: 480px) {
+    section {
+        margin: 0 1rem;
+    }
+    .section-container {
+        flex-direction: column;
+    }
+    .project-img2 {
+        width: 80%;
+    }
+}
+}
