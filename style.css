@@ -441,44 +441,26 @@ footer {
 
 /* For mobile devices */
 @media (hover: none) {
-    /* Remove hover styles for mobile devices */
-    .btn-clor-1:hover,
-    .btn-clor-2:hover,
-    .nav-links li a:hover {
-        color: black;
+    /* Remove hover styles for mobile */
+    .nav-links li a:hover,
+    .contact-info-upper-container p:hover {
+        color: inherit;
         text-decoration: none;
-        background: white;
+        text-decoration-color: initial;
+        text-underline-offset: initial;
+        border: black;
     }
 }
 
-@media (max-width: 1024px) {
-    .unique-arrow {
-        display: none;
+    /* Set button color to black on mobile */
+    .btn {
+        background-color: black;
+        color: white;
     }
-}
-  
-@media (max-width: 768px) {
-    section {
-        margin: 0 2rem;
-        height: fit-content;
+
+    @media (max-width: 600px) {
+        .project-img2 {
+            width: 100%;
+            height: auto;
+        }
     }
-    .section-container {
-        flex-direction: column;
-        height: fit-content;
-    }
-    .project-img2 {
-        width: 60%;
-    }
-}
-  
-@media (max-width: 480px) {
-    section {
-        margin: 0 1rem;
-    }
-    .section-container {
-        flex-direction: column;
-    }
-    .project-img2 {
-        width: 80%;
-    }
-}
