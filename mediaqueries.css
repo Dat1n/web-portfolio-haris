@@ -58,7 +58,7 @@
   @media screen and (max-width: 600px) {
     #contact,
     footer {
-      height: 25vh;
+      height: 28vh;
     }
     #profile {
       height: 83vh;
@@ -108,4 +108,5 @@
     .text-container {
       text-align: justify;
     }
+    
   }
