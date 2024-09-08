@@ -351,7 +351,7 @@ article.icon{
 .project-img{
     border-radius: 2rem;
     width: 100%;
-    height: 16rem;
+    height: 23rem;
 }
 
 .project-img2{
@@ -415,6 +415,42 @@ footer {
     background-color: rgb(169, 149, 123);
     text-align: center;
     padding: 1rem 0;
+}
+
+/* Specific styles for 1440p displays */
+@media (min-width: 2560px) and (max-width: 2560px) {
+    /* Adjustments for 1440p resolution */
+    body {
+        font-size: 30px; /* Example adjustment */
+    }
+
+    .section {
+        margin: 0 50%; /* Example adjustment for sections */
+    }
+
+    .nav-links {
+        font-size: 2.0rem; /* Example adjustment for font size */
+    }
+
+    .title {
+        font-size: 5rem; /* Example adjustment for title */
+    }
+
+    .btn {
+        padding: 2rem; /* Example adjustment for button padding */
+        width: 10rem; /* Example adjustment for button width */
+    }
+    
+    .container {
+        max-width: 1200px; /* Example adjustment for container width */
+        margin: 0 auto; /* Center the container */
+        padding: 0 2rem; /* Add horizontal padding */
+    }
+
+    .section-container {
+        margin: 0 5%; /* Adjust the margin for sections */
+        padding: 2rem; /* Add padding inside section containers */
+    }
 }
 
 
