@@ -47,6 +47,9 @@ a {
     color: black;
     text-decoration: none;
     text-decoration: 163,163,163;
+    -webkit-user-select: auto; /* Allow default user behavior */
+    -webkit-touch-callout: default; /* Show the default callout menu (with open link options) */
+    user-select: auto; /* Ensure links can be interacted with */
 }
 
 .logo{
