@@ -254,6 +254,19 @@ section{
 .about-details-container {
     display: flex;
 }
+.competencies-containers {
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.competencies-details-container {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
   
 .about-pic {
     border-radius: 2rem;
@@ -518,6 +531,13 @@ footer {
     }
     .project-img2 {
         width: 60%;
+    }
+    .competencies-containers {
+        gap: 3rem;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        display: flex;
+        position: relative;
     }
 }
   
