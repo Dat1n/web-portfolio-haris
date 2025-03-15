@@ -279,7 +279,7 @@ section{
 }
   
 .details-container {
-    padding: 0.9rem;
+    padding: 2rem;
     flex: 1;
     background: white;
     border-radius: 2rem;
@@ -491,12 +491,12 @@ footer {
 /* For desktop screens */
 @media (hover: hover) {
     /* Add your desktop hover styles here */
-    .btn-clor-1:hover {
+    .btn-color-1:hover {
         background: rgb(0, 0, 0);
         color: white;
     }
 
-    .btn-clor-2:hover {
+    .btn-color-2:hover {
         border: 0.1rem solid black;
         background: black;
         color: white;
