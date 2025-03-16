@@ -291,7 +291,7 @@ section{
 }
   
 .details-container {
-    padding: 0.7rem;
+    padding: 1.2rem;
     flex: 1;
     background: white;
     border-radius: 2rem;
@@ -302,7 +302,7 @@ section{
 }
 
 .details-container2 {
-    padding: 2rem;
+    padding: 2.4rem;
     flex: 1;
     background: white;
     border-radius: 2rem;
