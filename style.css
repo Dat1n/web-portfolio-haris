@@ -327,7 +327,7 @@ section{
 .tools-container {
     display: flex;
     justify-content: center;
-    gap: 2rem; /* Adjust spacing between icons */
+    gap: 1.2rem; /* Adjust spacing between icons */
     margin-top: 1rem;
 }
 
