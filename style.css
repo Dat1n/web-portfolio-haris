@@ -255,6 +255,7 @@ section{
     gap: 2rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
+     align-items: stretch;
 }
   
 .about-details-container {
@@ -298,7 +299,21 @@ section{
     border: rgb(53, 53, 53) 0.1rem solid;
     border-color: rgb(163, 163, 163);
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto;   
+}
+
+.details-project-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 30%;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  min-width: 300px;
 }
 
 .details-container2 {
@@ -327,22 +342,22 @@ section{
 .tools-container {
     display: flex;
     justify-content: center;
-    gap: 1.2rem; /* Adjust spacing between icons */
+    gap: 1.2rem; 
     margin-top: 1rem;
 }
 
 .tool-icon {
-    width: 50px; /* Adjust size */
+    width: 50px; 
     height: auto;
-    pointer-events: none; /* Makes the image non-clickable */
+    pointer-events: none; 
     transition: transform 0.3s ease-in-out;
 }
 .tools-container img {
-    pointer-events: auto; /* Re-enable hover effects */
+    pointer-events: auto; 
 }
 
 .tool-icon:hover {
-    transform: scale(1.2); /* Slightly enlarge on hover */
+    transform: scale(1.2); /
 }
 
   
@@ -388,12 +403,12 @@ body {
 
 article {
     display: flex;
-    flex-direction: column; /* Change to column if content should stack */
-    align-items: flex-start; /* Align content to the left */
+    flex-direction: column; 
+    align-items: flex-start; 
     justify-content: center;
     max-width: 800px;
-    margin: 0 auto; /* Centers the container */
-    padding: 0 1rem; /* Adds small padding */
+    margin: 0 auto;
+    padding: 0 1rem; 
     font-size: 14px;
     line-height: 1.5;
     text-align: left;
@@ -425,13 +440,13 @@ article.icon{
 
 .project-img2{
     border-radius: 2rem;
-    width: 45%; /* Adjusted for smaller size */
+    width: 45%; 
     height: auto;
 }
 
 .project-img3{
     border-radius: 2rem;
-    width: 60%; /* Adjusted for smaller size */
+    width: 60%; 
     height: auto;
 }
 
@@ -498,35 +513,35 @@ footer {
 @media (min-width: 2560px) and (max-width: 2560px) {
     /* Adjustments for 1440p resolution */
     body {
-        font-size: 30px; /* Example adjustment */
+        font-size: 30px; 
     }
 
     .section {
-        margin: 0 50%; /* Example adjustment for sections */
+        margin: 0 50%; 
     }
 
     .nav-links {
-        font-size: 2.0rem; /* Example adjustment for font size */
+        font-size: 2.0rem; 
     }
 
     .title {
-        font-size: 5rem; /* Example adjustment for title */
+        font-size: 5rem; 
     }
 
     .btn {
-        padding: 2rem; /* Example adjustment for button padding */
-        width: 10rem; /* Example adjustment for button width */
+        padding: 2rem; 
+        width: 10rem; 
     }
     
     .container {
-        max-width: 1200px; /* Example adjustment for container width */
-        margin: 0 auto; /* Center the container */
-        padding: 0 2rem; /* Add horizontal padding */
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 0 2rem; 
     }
 
     .section-container {
-        margin: 0 5%; /* Adjust the margin for sections */
-        padding: 2rem; /* Add padding inside section containers */
+        margin: 0 5%;
+        padding: 2rem; 
     }
     .project-img{
         border-radius: 2rem;
