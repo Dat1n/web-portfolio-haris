@@ -594,6 +594,12 @@ footer {
     .unique-arrow {
         display: none;
     }
+    .tool-icon {
+    width: 40px; 
+    height: auto;
+    pointer-events: none; 
+    transition: transform 0.3s ease-in-out;
+}
 }
   
 @media (max-width: 768px) {
@@ -615,6 +621,12 @@ footer {
         display: flex;
         position: relative;
     }
+    .tool-icon {
+    width: 40px; 
+    height: auto;
+    pointer-events: none; 
+    transition: transform 0.3s ease-in-out;
+}
 }
   
 @media (max-width: 480px) {
@@ -627,5 +639,11 @@ footer {
     .project-img2 {
         width: 80%;
     }
+    .tool-icon {
+    width: 40px; 
+    height: auto;
+    pointer-events: none; 
+    transition: transform 0.3s ease-in-out;
+}
 }
 }
