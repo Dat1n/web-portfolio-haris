@@ -252,13 +252,32 @@ section{
 }
   
 .about-containers {
-    gap: 2rem;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    align-items: stretch;
-     flex-wrap: wrap;
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: flex-start; /* default */
 }
-  
+
+.details-project-container {
+  flex: 0 0 30%;
+  max-width: 30%;
+  min-width: 300px;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details-project-container:nth-child(4) {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .about-details-container {
     justify-content: center;
     flex-direction: column;
@@ -314,7 +333,7 @@ section{
   border-radius: 2rem;
   padding: 1.5rem;
   text-align: center;
-  min-width: 300px;
+  min-width: 360px;
 }
 
 .details-container2 {
@@ -503,6 +522,13 @@ article.icon{
     height: auto;
 }
 
+.project-img4 {
+    border-radius: 2rem;
+    width: 60%; 
+    height: auto;
+}
+
+
 .project-title{
     margin: 1rem;
     color: black;
@@ -653,6 +679,12 @@ footer {
     pointer-events: none; 
     transition: transform 0.3s ease-in-out;
 }
+ .details-project-container {
+    flex: 0 0 100%;   /* almost full width */
+    max-width: 100%;
+    min-width: unset; /* remove min-width */
+    margin-bottom: 1.5rem; /* spacing between cards */
+  }
 }
   
 @media (max-width: 768px) {
@@ -680,6 +712,12 @@ footer {
     pointer-events: none; 
     transition: transform 0.3s ease-in-out;
 }
+ .details-project-container {
+    flex: 0 0 100%;   /* almost full width */
+    max-width: 100%;
+    min-width: unset; /* remove min-width */
+    margin-bottom: 1.5rem; /* spacing between cards */
+  }
 }
   
 @media (max-width: 480px) {
@@ -698,5 +736,11 @@ footer {
     pointer-events: none; 
     transition: transform 0.3s ease-in-out;
 }
+ .details-project-container {
+    flex: 0 0 100%;   /* almost full width */
+    max-width: 100%;
+    min-width: unset; /* remove min-width */
+    margin-bottom: 1.5rem; /* spacing between cards */
+  }
 }
 }
