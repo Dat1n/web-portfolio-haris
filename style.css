@@ -707,7 +707,7 @@ footer {
         position: relative;
     }
     .tool-icon {
-    width: 40px; 
+    width: 30px; 
     height: auto;
     pointer-events: none; 
     transition: transform 0.3s ease-in-out;
@@ -731,7 +731,7 @@ footer {
         width: 80%;
     }
     .tool-icon {
-    width: 40px; 
+    width: 30px; 
     height: auto;
     pointer-events: none; 
     transition: transform 0.3s ease-in-out;
