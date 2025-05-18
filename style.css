@@ -328,6 +328,18 @@ section{
     margin: 0 auto;
     text-align: center;
 }
+
+.details-container3 {
+    padding: 0.8rem;
+    flex: 1;
+    background: white;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    text-align: center;
+    margin: 0 auto;
+    text-align: center;
+}
   
 .section-container {
     gap: 4rem;
