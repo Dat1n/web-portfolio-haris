@@ -104,6 +104,7 @@
     }
     .title {
       font-size: 2rem;
+      margin-top: 1rem;
     }
     .text-container {
       text-align: left;
