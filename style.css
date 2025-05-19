@@ -187,7 +187,8 @@ section{
     text-align: center;
     margin-right: 7rem;
 }
-  
+
+ 
 .title {
     font-size: 3rem;
     text-align: center;
@@ -731,6 +732,11 @@ footer {
     margin-top: 1rem;
 }
 
+.section__text__p3 {
+    text-align: center;
+    margin-right: 0rem
+}
+
 }
   
 @media (max-width: 480px) {
@@ -761,6 +767,11 @@ footer {
     justify-content: center;
     gap: 0.5rem; 
     margin-top: 1rem;
+}
+
+.section__text__p3 {
+    text-align: center;
+    margin-right: 0rem
 }
 
 }
