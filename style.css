@@ -185,7 +185,7 @@ section{
 
 .section__text__p3 {
     text-align: center;
-    margin-right: 7rem;
+    margin-right: 2.2rem;
 }
 
  
@@ -260,7 +260,7 @@ section{
 .about-containers {
 display: flex;
 flex-wrap: wrap;
-gap: 20px;
+gap: 50px;
 justify-content: flex-start;
 }
 
