@@ -247,7 +247,7 @@ section{
 }
 
 .btn-color-2:hover {
-    background: rgb(0, 183, 255); /* Light blue */
+    background: rgb(46, 47, 48);
     color: white;
 }
 
