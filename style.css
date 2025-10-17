@@ -260,7 +260,7 @@ section{
 .about-containers {
 display: flex;
 flex-wrap: wrap;
-gap: 160px;
+gap: 50px;
 justify-content: flex-start;
 }
 
