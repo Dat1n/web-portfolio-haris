@@ -1,386 +1,1556 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T7DZKQGZGM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haris Naszim Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  gtag('config', 'G-T7DZKQGZGM');
-</script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mediaqueries.css">
-</head>
-<body>
-    <nav id="desktop-nav">
-        <div class="logo">Haris Naszim</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#Competencies">Competencies</a></li>
-                <li><a href="#project">Project</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+      :root {
+        --cream: #faf7f2;
+        --parchment: #f2ede4;
+        --mocha: #6b4f3a;
+        --mocha-light: #9a7560;
+        --mocha-pale: #d4bfb0;
+        --text: #2c2016;
+        --text-light: #6e5d52;
+        --white: #ffffff;
+        --shadow: rgba(107, 79, 58, 0.12);
+        --r-xs: 6px;
+        --r-sm: 12px;
+        --r-md: 18px;
+        --r-lg: 26px;
+        --r-xl: 36px;
+        --r-full: 9999px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--text);
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 5%;
+        background: rgba(250, 247, 242, 0.88);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--mocha-pale);
+        transition: box-shadow 0.3s;
+      }
+      nav.scrolled {
+        box-shadow: 0 2px 20px var(--shadow);
+      }
+      .nav-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--mocha);
+        letter-spacing: 0.04em;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-light);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--mocha);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--mocha);
+        display: block;
+        border-radius: var(--r-full);
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 1.5rem 5%;
+        border-bottom: 1px solid var(--mocha-pale);
+        z-index: 99;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-light);
+        text-decoration: none;
+      }
+
+      /* ── HERO ── */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8rem 5% 4rem;
+        background: linear-gradient(
+          160deg,
+          var(--cream) 60%,
+          var(--parchment) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      #hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 70% 50% at 50% 60%,
+          rgba(212, 191, 176, 0.25) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-inner {
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        max-width: 1100px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-photo-wrap {
+        flex-shrink: 0;
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      .hero-photo-ring {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        border: 4px solid var(--mocha-pale);
+        padding: 4px;
+        box-shadow: 0 12px 48px rgba(107, 79, 58, 0.18);
+        background: linear-gradient(135deg, var(--parchment), var(--cream));
+        overflow: hidden;
+      }
+      .hero-photo-ring img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+      }
+      .hero-text {
+        flex: 1;
+      }
+      .hero-eyebrow {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--mocha-light);
+        font-weight: 500;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      .hero-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.05;
+        color: var(--text);
+        margin-bottom: 0.6rem;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .hero-name em {
+        font-style: italic;
+        color: var(--mocha);
+      }
+      .hero-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+        font-weight: 300;
+        color: var(--mocha-light);
+        letter-spacing: 0.1em;
+        margin-bottom: 2.4rem;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      .hero-divider {
+        width: 50px;
+        height: 2px;
+        background: var(--mocha-pale);
+        border-radius: var(--r-full);
+        margin: 0 0 2.4rem;
+        opacity: 0;
+      }
+      .btn-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.8rem;
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      .btn {
+        padding: 0.75rem 2rem;
+        border-radius: var(--r-full);
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.25s;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn-primary {
+        background: var(--mocha);
+        color: var(--white);
+        border: 1.5px solid var(--mocha);
+      }
+      .btn-primary:hover {
+        background: var(--text);
+        border-color: var(--text);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(107, 79, 58, 0.25);
+      }
+      .btn-outline {
+        background: transparent;
+        color: var(--mocha);
+        border: 1.5px solid var(--mocha);
+      }
+      .btn-outline:hover {
+        background: var(--mocha);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .social-row {
+        display: flex;
+        gap: 1.2rem;
+        opacity: 0;
+      }
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: var(--r-sm);
+        border: 1.5px solid var(--mocha-pale);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s;
+        color: var(--mocha-light);
+        text-decoration: none;
+      }
+      .social-icon:hover {
+        border-color: var(--mocha);
+        color: var(--mocha);
+        transform: translateY(-3px);
+        background: var(--parchment);
+        box-shadow: 0 4px 12px var(--shadow);
+      }
+      .social-icon svg {
+        width: 17px;
+        height: 17px;
+        fill: currentColor;
+      }
+
+      /* ── SECTIONS ── */
+      section {
+        padding: 7rem 5%;
+      }
+      .section-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--mocha-light);
+        font-weight: 500;
+        margin-bottom: 0.8rem;
+      }
+      .section-heading {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+        font-weight: 300;
+        color: var(--text);
+        line-height: 1.15;
+        margin-bottom: 3.5rem;
+      }
+      .section-heading em {
+        font-style: italic;
+        color: var(--mocha);
+      }
+      .section-thin-line {
+        width: 40px;
+        height: 2px;
+        background: var(--mocha-pale);
+        border-radius: var(--r-full);
+        margin: 1.2rem 0 2.4rem;
+      }
+
+      /* ── ABOUT ── */
+      #about {
+        background: var(--parchment);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 5rem;
+        align-items: start;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .about-img-wrap {
+        position: relative;
+      }
+      .about-img-wrap img {
+        width: 100%;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+        border-radius: var(--r-lg);
+        display: block;
+        box-shadow: 0 16px 48px rgba(107, 79, 58, 0.15);
+      }
+      .about-bio {
+        font-size: 1.025rem;
+        line-height: 1.8;
+        color: var(--text-light);
+        margin-bottom: 2rem;
+      }
+      .about-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 2rem;
+      }
+      .pill {
+        padding: 0.38rem 1rem;
+        border: 1.5px solid var(--mocha-pale);
+        border-radius: var(--r-full);
+        font-size: 0.78rem;
+        color: var(--mocha);
+        background: rgba(107, 79, 58, 0.04);
+        letter-spacing: 0.04em;
+        transition: all 0.2s;
+      }
+      .pill:hover {
+        background: var(--mocha);
+        color: var(--white);
+        border-color: var(--mocha);
+      }
+
+      .about-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin-bottom: 2.4rem;
+      }
+      .meta-card {
+        padding: 1.2rem 1.4rem;
+        background: var(--cream);
+        border-radius: var(--r-md);
+        border: 1.5px solid var(--mocha-pale);
+        transition: all 0.22s;
+      }
+      .meta-card:hover {
+        box-shadow: 0 6px 20px var(--shadow);
+        transform: translateY(-2px);
+      }
+      .meta-card h4 {
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--mocha-light);
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+      }
+      .meta-card p {
+        font-size: 0.92rem;
+        color: var(--text);
+        font-weight: 400;
+      }
+
+      /* ── TOOLS — two groups ── */
+      .tools-section {
+        margin-top: 2.5rem;
+      }
+
+      /* Group wrapper */
+      .tools-group {
+        margin-bottom: 2rem;
+      }
+      .tools-group-label {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--mocha-light);
+        margin-bottom: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .tools-group-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(to right, var(--mocha-pale), transparent);
+        border-radius: var(--r-full);
+      }
+
+      .tools-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        align-items: flex-start;
+      }
+      .tool-icon-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.75rem 0.85rem;
+        background: var(--cream);
+        border: 1.5px solid var(--mocha-pale);
+        border-radius: var(--r-md);
+        transition: all 0.22s;
+        cursor: default;
+        opacity: 0;
+        transform: translateY(16px) scale(0.92);
+        min-width: 68px;
+      }
+      .tool-icon-item:hover {
+        border-color: var(--mocha-light);
+        background: rgba(107, 79, 58, 0.05);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 18px var(--shadow);
+      }
+      .tool-icon-item img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+        display: block;
+      }
+      .tool-icon-item span {
+        font-size: 0.6rem;
+        color: var(--text-light);
+        letter-spacing: 0.03em;
+        font-weight: 500;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      /* Workplace badge accent */
+      .tools-group.workplace .tool-icon-item {
+        background: #fff;
+      }
+      .tools-group.workplace .tool-icon-item:hover {
+        background: rgba(107, 79, 58, 0.04);
+      }
+
+      /* ── COMPETENCIES ── */
+      #competencies {
+        background: var(--cream);
+      }
+      .comp-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.25rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .comp-card {
+        padding: 1.8rem;
+        background: var(--white);
+        border: 1.5px solid var(--mocha-pale);
+        border-radius: var(--r-lg);
+        transition: all 0.28s;
+        cursor: default;
+        position: relative;
+        overflow: hidden;
+      }
+      .comp-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(to right, var(--mocha), var(--mocha-light));
+        border-radius: 0 0 var(--r-lg) var(--r-lg);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s;
+      }
+      .comp-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 14px 36px var(--shadow);
+      }
+      .comp-card:hover::after {
+        transform: scaleX(1);
+      }
+      .comp-card:hover .comp-detail {
+        max-height: 80px;
+        opacity: 1;
+      }
+      .comp-card h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+      .comp-detail {
+        font-size: 0.84rem;
+        color: var(--text-light);
+        line-height: 1.55;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          opacity 0.3s;
+      }
+
+      /* ── PROJECTS ── */
+      #projects {
+        background: var(--parchment);
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .project-card {
+        background: var(--white);
+        border: 1.5px solid var(--mocha-pale);
+        border-radius: var(--r-xl);
+        overflow: hidden;
+        transition:
+          box-shadow 0.35s,
+          transform 0.35s;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+      }
+      .project-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 24px 60px rgba(107, 79, 58, 0.18);
+      }
+      .project-img-wrap {
+        overflow: hidden;
+        aspect-ratio: 16/10;
+        border-radius: var(--r-xl) var(--r-xl) 0 0;
+      }
+      .project-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        display: block;
+      }
+      .project-card:hover .project-img-wrap img {
+        transform: scale(1.06);
+      }
+      .project-body {
+        padding: 1.7rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .project-tag {
+        font-size: 0.68rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--mocha-light);
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+      .project-body h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.6rem;
+      }
+      .project-body p {
+        font-size: 0.87rem;
+        color: var(--text-light);
+        line-height: 1.7;
+        flex: 1;
+        margin-bottom: 1.4rem;
+      }
+      .project-links {
+        display: flex;
+        gap: 0.75rem;
+      }
+      .project-links a {
+        padding: 0.5rem 1.2rem;
+        border: 1.5px solid var(--mocha-pale);
+        border-radius: var(--r-full);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mocha);
+        text-decoration: none;
+        transition: all 0.22s;
+        font-weight: 500;
+      }
+      .project-links a:hover {
+        background: var(--mocha);
+        color: var(--white);
+        border-color: var(--mocha);
+        transform: translateY(-1px);
+      }
+      .project-links a.primary {
+        background: var(--mocha);
+        color: var(--white);
+      }
+      .project-links a.primary:hover {
+        background: var(--text);
+        border-color: var(--text);
+      }
+
+      /* ── CONTACT ── */
+      #contact {
+        background: var(--cream);
+      }
+      .contact-inner {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .contact-inner .section-label,
+      .contact-inner .section-heading {
+        text-align: center;
+      }
+      .contact-inner .section-thin-line {
+        margin: 1.2rem auto 2.4rem;
+      }
+      .contact-bio {
+        font-size: 1rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+      }
+      .contact-email-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.35rem;
+        color: var(--mocha);
+        text-decoration: none;
+        border-bottom: 1.5px solid var(--mocha-pale);
+        padding-bottom: 0.2rem;
+        transition: all 0.22s;
+        margin-bottom: 3rem;
+      }
+      .contact-email-link:hover {
+        color: var(--text);
+        border-color: var(--mocha);
+      }
+      .contact-social {
+        display: flex;
+        gap: 1.2rem;
+        justify-content: center;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--parchment);
+        border-top: 1px solid var(--mocha-pale);
+        padding: 2rem 5%;
+        text-align: center;
+      }
+      footer p {
+        font-size: 0.8rem;
+        color: var(--text-light);
+      }
+
+      /* ── REVEAL BASE ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+      }
+      .reveal-left {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .hero-inner {
+          flex-direction: column;
+          gap: 2.5rem;
+          text-align: center;
+        }
+        .hero-divider {
+          margin: 0 auto 2.4rem;
+        }
+        .btn-row {
+          justify-content: center;
+        }
+        .social-row {
+          justify-content: center;
+        }
+        .hero-photo-ring {
+          width: 200px;
+          height: 200px;
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .about-meta {
+          grid-template-columns: 1fr;
+        }
+        .comp-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 480px) {
+        .comp-grid {
+          grid-template-columns: 1fr;
+        }
+        section {
+          padding: 5rem 5%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="mainNav">
+      <div class="nav-logo">Haris Naszim</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#competencies">Competencies</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">Haris Naszim</div>
-        <div class="hamburger-menu">
-            <div class="hamburger-icon" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-            </div>
-            <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#Competencies" onclick="toggleMenu()">Competencies</a></li>
-                <li><a href="#project" onclick="toggleMenu()">Project</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-            </div>
-        </div>
-    </nav>
-    <section id= "profile">
-        <div class ="section__pic-container">
-            <img src="./assets/profile-pic.png" alt="Haris Naszim profile Picture">
-        </div>
-        <div class="section__text">
-            <p class="section__text__p1"></p>
-            <h1 class="title">Haris Naszim</h1>
-            <p class="section__text__p2">Computer Scientist</p>
-            <div class="btn-container">
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#competencies" onclick="toggleMenu()">Competencies</a>
+      <a href="#projects" onclick="toggleMenu()">Projects</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
 
-                <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')"
-                >My Resume</button>
-
-                <button class="btn btn-color-2" onclick="location.href='./#contact'"
-                >Contact Info</button>
-                
-            </div>
-            <div id="social-container">
-                <img src="./assets/linkedin.png" alt="My linkedin profile"
-                class="icon"onclick="location.href='https://www.linkedin.com/in/haris-imran-624a04307/'">
-
-                <img src="./assets/github.png" alt="My Github Profile"
-                class="icon"onclick="location.href='https://github.com/Dat1n'">
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <p class="section__text__p1">Get To Know More</p>
-        <h1 class="title">About Me</h1>
-        <div class="section-container">
-          <div class="section__pic-container">
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-photo-wrap" id="heroPhoto">
+          <div class="hero-photo-ring">
             <img
-              src="./assets/aboutme.jpg"
-              alt="Profile picture"
-              class="about-pic"
+              src="./assets/profile-pic.png"
+              alt="Haris Naszim profile picture"
             />
           </div>
-          <div class="about-details-container">
-            <div class="about-containers">
-              <div class="details-container2">
-                <img
-                  src="./assets/experience.png"
-                  alt="Experience icon"
-                  class="icon"
+        </div>
+        <div class="hero-text">
+          <p class="hero-eyebrow" id="heroEyebrow">
+            Available for Opportunities
+          </p>
+          <h1 class="hero-name" id="heroName">Haris <em>Naszim</em></h1>
+          <p class="hero-title" id="heroTitle">
+            Full Stack Developer &amp; Computer Scientist
+          </p>
+          <div class="btn-row" id="heroBtns">
+            <a
+              class="btn btn-primary"
+              href="./assets/resume.pdf"
+              target="_blank"
+              >Resume</a
+            >
+            <a class="btn btn-outline" href="#contact">Contact</a>
+          </div>
+          <div class="social-row" id="heroSocial">
+            <a
+              class="social-icon"
+              href="https://www.linkedin.com/in/haris-imran-624a04307/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.23 0z"
                 />
-                <h3>Languages</h3>
-                <p>HTML, CSS, JAVASCRIPT, C++, JAVA, SQL, PHP, PYTHON, REACT<br /></p>
-                    </div>
-                    <div class="details-container">
-                        <img
-                  src="./assets/education.png"
-                  alt="education icon"
-                  class="icon"
+              </svg>
+            </a>
+            <a
+              class="social-icon"
+              href="https://github.com/Dat1n"
+              target="_blank"
+              title="GitHub"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
                 />
-                <h3>education</h3>
-                <p>Diploma Computer Science<br /></p>
-                    </div>
-                </div>
-                <div class="text-container">
-                    <p>Motivated Full-stack Developer with experience in web development, software testing, and quality
-assurance. Proven record of delivering applications that streamline operations, reduce errors, and
-drive business growth. Skilled in problem-solving, debugging, and collaboration, with experience in
-both corporate and freelance projects. Eager to contribute as a developer while continuing to grow
-expertise and deliver impactful solutions.
-                    </p>
-                </div>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-grid">
+        <div class="about-img-wrap reveal-left" id="aboutPhoto">
+          <img src="./assets/aboutme.jpg" alt="Haris Naszim" />
+        </div>
+
+        <div>
+          <p class="section-label reveal" id="aboutLabel">Get to know me</p>
+          <h2 class="section-heading reveal" id="aboutHeading">
+            About <em>Me</em>
+          </h2>
+          <div class="section-thin-line reveal" id="aboutLine"></div>
+          <p class="about-bio reveal" id="aboutBio">
+            Motivated Full-Stack Developer with hands-on experience in web
+            development, software testing, and quality assurance. I build
+            applications that streamline operations, reduce friction, and drive
+            real results across both corporate and freelance environments.
+          </p>
+
+          <div class="about-meta" id="aboutMeta">
+            <div class="meta-card" data-meta>
+              <h4>Education</h4>
+              <p>Diploma in Computer Science</p>
             </div>
-        </div>
-        <h1 class="title">Tools I Use</h1>
-<div class="tools-container">
-    <img src="assets/vscode.png" alt="VS Code" class="icon tool-icon vscode">
-    <img src="assets/github.png" alt="GitHub" class="icon tool-icon github">
-    <img src="assets/firebase.png" alt="Firebase" class="icon tool-icon firebase">
-    <img src="assets/sql.png" alt="Sql" class="icon tool-icon sql">
-    <img src="assets/cisco.png" alt="cisco" class="icon tool-icon cisco">
-    <img src="assets/wireshark.png" alt="wireshark" class="icon tool-icon wireshark">
-    <img src="assets/drawio.png" alt="drawio" class="icon tool-icon drawio">
-    <img src="assets/node.js.png" alt="node.js" class="icon tool-icon node.js">
-    <img src="assets/renderlogo.png" alt="render" class="icon tool-icon render">
-    <img src="assets/flutter.png" alt="flutter" class="icon tool-icon flutter">
-</div>
-
-
-        <img src="" alt="" class="icon arrow"
-        onclick="location.href='./#Competencies'">
-    </section>
-    <section id="Competencies">
-        <p class="section__text__p1">Explore My </p>
-            <h1 class="title">Competencies</h1>
-            <div class="Competencies-details-container">
-                <div class="competencies-containers">
-                    <div class="details-container3">
-                        <h2 class="Competencies-sub-title"></h2>
-                        <div class="ariticle-container">
-                         <!-- First container: Core CS Fundamentals -->
-<div class="ariticle-container">
-  <article>
-    <div>
-      <h3>Algorithm Design</h3>
-      <p>Designed efficient algorithms and enhanced analytical problem-solving skills.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Computer Problem Solving</h3>
-      <p>Applied algorithmic and logical thinking to build robust solutions.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Interactive Multimedia</h3>
-      <p>Explored design principles, user interactivity, and modern UI/UX techniques.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Operating Systems</h3>
-      <p>Studied OS fundamentals: process management, concurrency, scheduling, and memory systems.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Data Structures</h3>
-      <p>Implemented arrays, stacks, queues, linked lists, and trees for efficient programming.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Web & Mobile Development</h3>
-      <p>Developed responsive front-end and scalable back-end applications using modern frameworks.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Networking</h3>
-      <p>Understood OSI and TCP/IP models, protocols, and real-world network configurations.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Entrepreneurship</h3>
-      <p>Gained insights into business ideation, startup management, marketing strategy, and execution.</p>
-    </div>
-  </article>
-</div>
-
-<!-- Second container: Industry-Ready / Professional Skills -->
-<div class="ariticle-container">
-  <article>
-    <div>
-      <h3>Computer Organization</h3>
-      <p>Explored CPU architecture, instruction cycles, and memory management fundamentals.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Object-Oriented Programming</h3>
-      <p>Developed strong OOP principles using encapsulation, inheritance, and polymorphism.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Database Management</h3>
-      <p>Designed normalized databases and performed SQL queries for efficient data handling.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Visual Programming</h3>
-      <p>Created interactive applications using visual programming tools and event-driven logic.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Information System Development</h3>
-      <p>Applied SDLC methodologies including Agile, Scrum, and Waterfall for project delivery.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Programming Paradigms</h3>
-      <p>Explored procedural, object-oriented, and functional programming for adaptable coding approaches.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>CI/CD & DevOps Practices</h3>
-      <p>Hands-on experience with Continuous Integration, Continuous Deployment, pipeline automation, and Agile workflows.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Software Testing & Quality Assurance</h3>
-      <p>Performed manual and automated testing, API validation, and regression testing in CI/CD pipelines.</p>
-    </div>
-  </article>
-
-  <article>
-    <div>
-      <h3>Cloud & Deployment Fundamentals</h3>
-      <p>Learned cloud infrastructure integration for scalable, secure, and automated application deployment.</p>
-    </div>
-  </article>
-</div>
-
-                    </div>
-                </div>
+            <div class="meta-card" data-meta>
+              <h4>Focus</h4>
+              <p>Full Stack &amp; DevOps</p>
             </div>
-            <img src="" alt="" class="icon unique-arrow"
-        onclick="location.href='./#project'">
+            <div class="meta-card" data-meta>
+              <h4>Experience</h4>
+              <p>Web Dev &amp; QA Testing</p>
+            </div>
+            <div class="meta-card" data-meta>
+              <h4>Status</h4>
+              <p>Open to Opportunities</p>
+            </div>
+          </div>
+
+          <div class="reveal" id="aboutPills">
+            <p class="section-label" style="margin-bottom: 0.6rem">
+              Languages &amp; Frameworks
+            </p>
+            <div class="about-pills">
+              <span class="pill">HTML/CSS</span>
+              <span class="pill">JavaScript</span>
+              <span class="pill">React</span>
+              <span class="pill">Node.js</span>
+              <span class="pill">Python</span>
+              <span class="pill">Java</span>
+              <span class="pill">C++</span>
+              <span class="pill">PHP</span>
+              <span class="pill">SQL</span>
+              <span class="pill">Flutter</span>
+            </div>
+          </div>
+
+          <!-- ═══ TOOLS — split into two groups ═══ -->
+          <div class="tools-section" id="aboutTools">
+            <!-- Group 1: Personal / Academic tools -->
+            <div class="tools-group" id="toolsPersonal">
+              <div class="tools-group-label">Personal &amp; Academic Tools</div>
+              <div class="tools-container">
+                <div class="tool-icon-item">
+                  <img src="assets/vscode.png" alt="VS Code" /><span
+                    >VS Code</span
+                  >
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/github.png" alt="GitHub" /><span
+                    >GitHub</span
+                  >
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/firebase.png" alt="Firebase" /><span
+                    >Firebase</span
+                  >
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/sql.png" alt="SQL" /><span>SQL</span>
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/cisco.png" alt="Cisco" /><span>Cisco</span>
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/wireshark.png" alt="Wireshark" /><span
+                    >Wireshark</span
+                  >
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/drawio.png" alt="Draw.io" /><span
+                    >Draw.io</span
+                  >
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/node.js.png" alt="Node.js" /><span
+                    >Node.js</span
+                  >
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/renderlogo.png" alt="Render" /><span
+                    >Render</span
+                  >
+                </div>
+                <div class="tool-icon-item">
+                  <img src="assets/flutter.png" alt="Flutter" /><span
+                    >Flutter</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Group 2: Workplace / Professional tools — icons from CDN / inline SVG fallback -->
+            <div class="tools-group workplace" id="toolsWork">
+              <div class="tools-group-label">
+                Workplace &amp; Professional Tools
+              </div>
+              <div class="tools-container">
+                <!-- Jenkins -->
+                <div class="tool-icon-item">
+                  <img
+                    src="https://www.jenkins.io/images/logos/jenkins/jenkins.svg"
+                    alt="Jenkins"
+                    onerror="
+                      this.src = 'https://cdn.simpleicons.org/jenkins/D33833'
+                    "
+                  />
+                  <span>Jenkins</span>
+                </div>
+
+                <!-- AWS -->
+                <div class="tool-icon-item">
+                  <img
+                    src="https://cdn.simpleicons.org/amazonwebservices/FF9900"
+                    alt="AWS"
+                    onerror="
+                      this.src =
+                        'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg'
+                    "
+                  />
+                  <span>AWS</span>
+                </div>
+
+                <!-- Alibaba Cloud -->
+                <div class="tool-icon-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 36 36"
+                  >
+                    <rect width="36" height="36" rx="8" fill="#FF6A00" />
+                    <text
+                      x="50%"
+                      y="38%"
+                      dominant-baseline="middle"
+                      text-anchor="middle"
+                      font-family="DM Sans, sans-serif"
+                      font-size="7.5"
+                      font-weight="700"
+                      fill="#fff"
+                    >
+                      ALI
+                    </text>
+                    <text
+                      x="50%"
+                      y="66%"
+                      dominant-baseline="middle"
+                      text-anchor="middle"
+                      font-family="DM Sans, sans-serif"
+                      font-size="7.5"
+                      font-weight="700"
+                      fill="#fff"
+                    >
+                      CLOUD
+                    </text>
+                  </svg>
+                  <span>Alibaba Cloud</span>
+                </div>
+
+                <!-- Postman -->
+                <div class="tool-icon-item">
+                  <img
+                    src="https://cdn.simpleicons.org/postman/FF6C37"
+                    alt="Postman"
+                  />
+                  <span>Postman</span>
+                </div>
+
+                <!-- Jira -->
+                <div class="tool-icon-item">
+                  <img
+                    src="https://cdn.simpleicons.org/jira/0052CC"
+                    alt="Jira"
+                  />
+                  <span>Jira</span>
+                </div>
+
+                <!-- Strato / Stratosphere — text badge fallback since no public CDN icon -->
+                <div class="tool-icon-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 36 36"
+                  >
+                    <rect width="36" height="36" rx="8" fill="#005A9C" />
+                    <text
+                      x="50%"
+                      y="54%"
+                      dominant-baseline="middle"
+                      text-anchor="middle"
+                      font-family="DM Sans, sans-serif"
+                      font-size="10"
+                      font-weight="700"
+                      fill="#fff"
+                    >
+                      STRATO
+                    </text>
+                  </svg>
+                  <span>Strato</span>
+                </div>
+
+                <!-- Docker -->
+                <div class="tool-icon-item">
+                  <img
+                    src="https://cdn.simpleicons.org/docker/2496ED"
+                    alt="Docker"
+                  />
+                  <span>Docker</span>
+                </div>
+
+                <!-- Git -->
+                <div class="tool-icon-item">
+                  <img src="https://cdn.simpleicons.org/git/F05032" alt="Git" />
+                  <span>Git</span>
+                </div>
+
+                <!-- MySQL / Database -->
+                <div class="tool-icon-item">
+                  <img
+                    src="https://cdn.simpleicons.org/mysql/4479A1"
+                    alt="MySQL"
+                  />
+                  <span>MySQL</span>
+                </div>
+
+                <!-- Confluence -->
+                <div class="tool-icon-item">
+                  <img
+                    src="https://cdn.simpleicons.org/confluence/172B4D"
+                    alt="Confluence"
+                  />
+                  <span>Confluence</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /tools-section -->
+        </div>
+      </div>
     </section>
-   <section id="project">
-  <p class="section__text__p3">Browse My Recent</p>
-  <h1 class="project"></h1>
-  <div class="Competencies-details-container">
-    <div class="about-containers">
 
-      <div class="details-project-container color-container">
-        <div class="article-card">
-          <img src="./assets/pokemon-ezgif.com-speed.gif" alt="" class="project-img" />
-        </div>
-
-        <div class="project-text-content">
-          <h2 class="Competencies-sub-title project-title">PocketPals</h2>
-          <p class="project-description">
-            PocketPals is a dynamic mini Pokémon website created using HTML, CSS, and JavaScript. 
-            This project showcases my adeptness in front-end development, where I utilized HTML for structure, CSS for styling, and JavaScript for interactivity. 
-            I embarked on this project out of a genuine passion for exploring new technologies and a deep-seated love for coding.
+    <!-- COMPETENCIES -->
+    <section id="competencies">
+      <div style="text-align: center; margin-bottom: 1rem">
+        <p class="section-label reveal">My expertise</p>
+        <h2 class="section-heading reveal">Core <em>Competencies</em></h2>
+        <p
+          style="
+            max-width: 520px;
+            margin: 0 auto 3rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            opacity: 0;
+          "
+          class="reveal"
+        >
+          Hover a card to see details. Built through academic study, project
+          work, and industry experience.
+        </p>
+      </div>
+      <div class="comp-grid">
+        <div class="comp-card reveal">
+          <h3>Algorithm Design</h3>
+          <p class="comp-detail">
+            Designed efficient algorithms; enhanced analytical problem-solving
+            with a focus on time and space complexity.
           </p>
         </div>
-
-        <div class="btn-container">
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Dat1n/mini-pokemon-game'">Github</button>
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://main--haris-mini-pokemon-website.netlify.app/'">Live Demo</button>
-        </div>
-      </div>
-
-      <div class="details-project-container color-container">
-        <div class="article-card">
-          <img src="./assets/ConnectIT.gif" alt="" class="project-img2" />
-        </div>
-
-        <div class="project-text-content">
-          <h2 class="Competencies-sub-title project-title">ConnectIT</h2>
-          <p class="project-description">
-            ConnectIT, a Flutter app for iOS and Android, uses Firebase for secure authentication and real-time database management, ensuring instant data sync. 
-            With dynamic JavaScript features, it offers a sleek UI, social features (posts, likes, comments), and screen size optimization, making it a standout in social media.
+        <div class="comp-card reveal">
+          <h3>Data Structures</h3>
+          <p class="comp-detail">
+            Implemented arrays, stacks, queues, linked lists, and trees for
+            efficient and reliable programming.
           </p>
         </div>
-
-        <div class="btn-container">
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Dat1n/Dat1n.github.io'">Github</button>
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://dat1n.github.io/ConnectIT/'">Live Demo</button>
-        </div>
-      </div>
-
-      <div class="details-project-container color-container">
-        <div class="article-card">
-          <img src="./assets/meowsuki.png" alt="" class="project-img3" />
-        </div>
-
-        <div class="project-text-content">
-          <h2 class="Competencies-sub-title project-title">meow-suki</h2>
-          <p class="project-description">
-            Meow-Suki is a cat café and hotel website designed to showcase the restaurant’s 
-            menu and key information in an engaging and user-friendly way. This project highlights my skills in front-end and back-end development, 
-            focusing on a clean design, responsive UI, and smooth navigation. The website will provide visitors with details about the café, its offerings, and an 
-            immersive experience that reflects the brand’s unique identity. My goal is to create an aesthetic and functional online presence that enhances customer engagement.
+        <div class="comp-card reveal">
+          <h3>Object-Oriented Programming</h3>
+          <p class="comp-detail">
+            Developed strong OOP principles using encapsulation, inheritance,
+            and polymorphism in Java and C++.
           </p>
         </div>
-
-        <div class="btn-container">
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Dat1n/CatCafe-CatHotel'">Github</button>
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://meowsuki.netlify.app/'">Live Demo</button>
-        </div>
-      </div>
-    <div class="details-project-container color-container">
-        <div class="article-card">
-          <img src="./assets/clonegpt.gif" alt="" class="project-img4" />
-        </div>
-
-        <div class="project-text-content">
-          <h2 class="Competencies-sub-title project-title">CloneGPT</h2>
-          <p class="project-description">
-            CloneGPT is a responsive AI chatbot web application developed using HTML, CSS, JavaScript, and Node.js. 
-            The backend server.mjs is deployed on Render, with API keys securely managed using .env files. 
-            A unique feature of the app is a custom Matrix-style rain of code background, created with JavaScript to enhance the visual appeal. 
-            This project demonstrates my skills in full-stack development, secure API handling, server deployment, and creative UI design.
+        <div class="comp-card reveal">
+          <h3>Web &amp; Mobile Development</h3>
+          <p class="comp-detail">
+            Developed responsive front-end and scalable back-end applications
+            using modern frameworks and best practices.
           </p>
         </div>
-
-        <div class="btn-container">
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Dat1n/clonegpt'">Github</button>
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://dat1n.github.io/clonegpt/'">Live Demo</button>
+        <div class="comp-card reveal">
+          <h3>Database Management</h3>
+          <p class="comp-detail">
+            Designed normalized databases and performed complex SQL queries for
+            efficient data handling and reporting.
+          </p>
+        </div>
+        <div class="comp-card reveal">
+          <h3>Software Testing &amp; QA</h3>
+          <p class="comp-detail">
+            Performed manual and automated testing, API validation, and
+            regression testing within CI/CD pipelines.
+          </p>
+        </div>
+        <div class="comp-card reveal">
+          <h3>CI/CD &amp; DevOps</h3>
+          <p class="comp-detail">
+            Hands-on experience with Continuous Integration, Continuous
+            Deployment, pipeline automation, and Agile workflows.
+          </p>
+        </div>
+        <div class="comp-card reveal">
+          <h3>Networking</h3>
+          <p class="comp-detail">
+            Understood OSI and TCP/IP models, protocols, and real-world network
+            configurations using Cisco tools.
+          </p>
+        </div>
+        <div class="comp-card reveal">
+          <h3>Operating Systems</h3>
+          <p class="comp-detail">
+            Studied OS fundamentals: process management, concurrency,
+            scheduling, and memory systems.
+          </p>
+        </div>
+        <div class="comp-card reveal">
+          <h3>Cloud &amp; Deployment</h3>
+          <p class="comp-detail">
+            Integrated cloud infrastructure for scalable, secure, and automated
+            application deployment on modern platforms.
+          </p>
+        </div>
+        <div class="comp-card reveal">
+          <h3>Information Systems Development</h3>
+          <p class="comp-detail">
+            Applied SDLC methodologies including Agile, Scrum, and Waterfall for
+            end-to-end project delivery.
+          </p>
+        </div>
+        <div class="comp-card reveal">
+          <h3>Interactive Multimedia &amp; UI/UX</h3>
+          <p class="comp-detail">
+            Explored design principles, user interactivity, and modern UI/UX
+            techniques for engaging digital experiences.
+          </p>
         </div>
       </div>
-</section>
-    <img src="" alt="" class=""
-        onclick="location.href='./#contact'">
     </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div style="text-align: center; margin-bottom: 1rem">
+        <p class="section-label reveal">What I've built</p>
+        <h2 class="section-heading reveal">Recent <em>Projects</em></h2>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card" data-project>
+          <div class="project-img-wrap">
+            <img
+              src="./assets/pokemon-ezgif.com-speed.gif"
+              alt="PocketPals project"
+            />
+          </div>
+          <div class="project-body">
+            <p class="project-tag">Front-End · JavaScript</p>
+            <h3>PocketPals</h3>
+            <p>
+              A dynamic mini Pokémon website showcasing front-end development
+              with HTML, CSS, and JavaScript. Demonstrates API integration,
+              interactive UI components, and passion-driven development.
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/Dat1n/mini-pokemon-game"
+                target="_blank"
+                >GitHub</a
+              >
+              <a
+                class="primary"
+                href="https://main--haris-mini-pokemon-website.netlify.app/"
+                target="_blank"
+                >Live Demo</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-project>
+          <div class="project-img-wrap">
+            <img src="./assets/ConnectIT.gif" alt="ConnectIT project" />
+          </div>
+          <div class="project-body">
+            <p class="project-tag">Flutter · Firebase · Mobile</p>
+            <h3>ConnectIT</h3>
+            <p>
+              A social media app for iOS and Android with Firebase
+              authentication, real-time database sync, social features (posts,
+              likes, comments), and a polished responsive UI.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/Dat1n/Dat1n.github.io" target="_blank"
+                >GitHub</a
+              >
+              <a
+                class="primary"
+                href="https://dat1n.github.io/ConnectIT/"
+                target="_blank"
+                >Live Demo</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-project>
+          <div class="project-img-wrap">
+            <img src="./assets/meowsuki.png" alt="Meow-Suki project" />
+          </div>
+          <div class="project-body">
+            <p class="project-tag">Full Stack · PHP · SQL</p>
+            <h3>Meow-Suki</h3>
+            <p>
+              A cat café &amp; hotel website with a clean design, responsive UI,
+              and smooth navigation highlighting full-stack skills and
+              brand-driven front-end aesthetics.
+            </p>
+            <div class="project-links">
+              <a
+                href="https://github.com/Dat1n/CatCafe-CatHotel"
+                target="_blank"
+                >GitHub</a
+              >
+              <a
+                class="primary"
+                href="https://meowsuki.netlify.app/"
+                target="_blank"
+                >Live Demo</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-project>
+          <div class="project-img-wrap">
+            <img src="./assets/clonegpt.gif" alt="CloneGPT project" />
+          </div>
+          <div class="project-body">
+            <p class="project-tag">Full Stack · Node.js · AI</p>
+            <h3>CloneGPT</h3>
+            <p>
+              A responsive AI chatbot app with a Node.js backend deployed on
+              Render, secure API key management via .env, and a custom
+              Matrix-style animated background.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/Dat1n/clonegpt" target="_blank"
+                >GitHub</a
+              >
+              <a
+                class="primary"
+                href="https://dat1n.github.io/clonegpt/"
+                target="_blank"
+                >Live Demo</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact">
-        <p class="section__text__p1">Get In Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <img src="./assets/email.png" alt="Email" class="icon contact-icon">
-            <p><a href="mailto:harisimran0524@gmail.com">harisimran0524@gmail.com</a></p>
+      <div class="contact-inner">
+        <p class="section-label reveal">Let's connect</p>
+        <h2 class="section-heading reveal">Get In <em>Touch</em></h2>
+        <p class="contact-bio reveal">
+          I'm open to full-time roles, freelance projects, and interesting
+          collaborations. Whether you have a question or just want to say hello
+          my inbox is always open.
+        </p>
+        <a
+          class="contact-email-link reveal"
+          href="mailto:harisimran0524@gmail.com"
+        >
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="3" />
+            <path d="m2 7 10 7 10-7" />
+          </svg>
+          harisimran0524@gmail.com
+        </a>
+        <div class="contact-social reveal">
+          <a
+            class="social-icon"
+            href="https://www.linkedin.com/in/haris-imran-624a04307/"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.23 0z"
+              />
+            </svg>
+          </a>
+          <a
+            class="social-icon"
+            href="https://github.com/Dat1n"
+            target="_blank"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+          </a>
         </div>
+      </div>
     </section>
-        <footer>
-            <nav>
-                <div class="nav-links-container">
-                    <ul class="nav-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#Competencies">Competencies</a></li>
-                        <li><a href="#project">Project</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <p>Copyright &#169; 2024 Haris Imran. All Rights Reserved</p>
-        </footer>
-        <script src="scrip.js"></script> 
-    </body>
-    </html>
-    
+
+    <footer>
+      <p>© 2024 Haris Naszim. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("mainNav")
+          .classList.toggle("scrolled", window.scrollY > 40);
+      });
+      function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("open");
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* ─── HERO ─── */
+      const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      heroTl
+        .to("#heroPhoto", { opacity: 1, scale: 1, duration: 0.9 }, 0.2)
+        .to("#heroEyebrow", { opacity: 1, y: 0, duration: 0.7 }, 0.45)
+        .to("#heroName", { opacity: 1, y: 0, duration: 0.9 }, 0.65)
+        .to("#heroTitle", { opacity: 1, y: 0, duration: 0.7 }, 0.9)
+        .to("#heroDivider", { opacity: 1, duration: 0.5 }, 1.15)
+        .to("#heroBtns", { opacity: 1, y: 0, duration: 0.6 }, 1.3)
+        .to("#heroSocial", { opacity: 1, duration: 0.5 }, 1.6);
+
+      /* ─── ABOUT: photo from left ─── */
+      gsap.to("#aboutPhoto", {
+        scrollTrigger: { trigger: "#aboutPhoto", start: "top 82%", once: true },
+        opacity: 1,
+        x: 0,
+        duration: 0.95,
+        ease: "power3.out",
+      });
+
+      /* ─── ABOUT: text cascade ─── */
+      [
+        "#aboutLabel",
+        "#aboutHeading",
+        "#aboutLine",
+        "#aboutBio",
+        "#aboutPills",
+      ].forEach((id, i) => {
+        gsap.to(id, {
+          scrollTrigger: { trigger: id, start: "top 88%", once: true },
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: "power2.out",
+          delay: i * 0.1,
+        });
+      });
+
+      /* ─── ABOUT: meta cards pop ─── */
+      gsap.fromTo(
+        "[data-meta]",
+        { opacity: 0, y: 28, scale: 0.94 },
+        {
+          scrollTrigger: {
+            trigger: "#aboutMeta",
+            start: "top 85%",
+            once: true,
+          },
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.55,
+          ease: "back.out(1.5)",
+          stagger: 0.1,
+        },
+      );
+
+      /* ─── ABOUT: pills wave ─── */
+      gsap.fromTo(
+        ".pill",
+        { opacity: 0, y: 14, scale: 0.88 },
+        {
+          scrollTrigger: {
+            trigger: "#aboutPills",
+            start: "top 88%",
+            once: true,
+          },
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.4,
+          ease: "back.out(1.6)",
+          stagger: 0.06,
+        },
+      );
+
+      /* ─── TOOLS: personal group stagger ─── */
+      gsap.to("#toolsPersonal .tool-icon-item", {
+        scrollTrigger: {
+          trigger: "#toolsPersonal",
+          start: "top 88%",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.42,
+        ease: "back.out(1.5)",
+        stagger: 0.065,
+      });
+
+      /* ─── TOOLS: workplace group stagger (slight delay after personal) ─── */
+      gsap.to("#toolsWork .tool-icon-item", {
+        scrollTrigger: { trigger: "#toolsWork", start: "top 90%", once: true },
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.42,
+        ease: "back.out(1.5)",
+        stagger: 0.07,
+      });
+
+      /* ─── PROJECTS: fan in ─── */
+      gsap.to("[data-project]", {
+        scrollTrigger: {
+          trigger: "#projectsGrid",
+          start: "top 80%",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        ease: "power3.out",
+        stagger: { each: 0.15, from: "start" },
+      });
+
+      /* ─── GENERAL reveals ─── */
+      document.querySelectorAll(".reveal").forEach((el, i) => {
+        gsap.to(el, {
+          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          ease: "power2.out",
+          delay: (i % 4) * 0.07,
+        });
+      });
+    </script>
+  </body>
+</html>
